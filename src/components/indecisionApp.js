@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Header from './Header';
 
-export default class indecisionApp extends Component {
+export default class IndecisionApp extends Component {
   render() {
     return (
       <div>
-        <h1>IndecisionApp</h1>
+        <Header />
       </div>
     );
   }
