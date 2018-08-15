@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Options from './Options';
+import Action from './Action';
 
 export default class IndecisionApp extends Component {
   state = {
-    options: ['Option 1', 'Option 2', 'Option 3']
+    options: ['Option 1', 'Option 2', 'Option 3'],
+    selectedOption: undefined
   };
+
+  handlePick = () => {
+    const randomNum = Math.floor(Math.random() * this.state.options.length);
+    const option = this.state.options[randomNum];
+    this.setState(() => ({ selectedOption: option }));
+  };
+
   render() {
     const subtitle = 'Put your life in the hands of a computer';
     return (
       <div>
         <Header subtitle={subtitle} />
-        <Options options={this.state.options}/>
+        <Action
+          hasOptions={this.state.options.length > 0}
+          handlePick={this.handlePick}
+        />
+        <Options options={this.state.options} />
       </div>
     );
   }
