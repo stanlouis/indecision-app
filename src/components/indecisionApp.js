@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Options from './Options';
 import Action from './Action';
+import AddOption from './AddOption';
 
 export default class IndecisionApp extends Component {
   state = {
@@ -20,6 +21,16 @@ export default class IndecisionApp extends Component {
     this.setState(() => ({ selectedOption: option }));
   };
 
+  handleAddOption = option => {
+    if (!option) {
+      return 'Enter valid value to add item';
+    } else if (this.state.options.includes(option)) {
+      return 'This option already exists';
+    }
+
+    this.setState(prevState => ({ options: prevState.options.concat(option) }));
+  };
+
   render() {
     const subtitle = 'Put your life in the hands of a computer';
     return (
@@ -33,6 +44,7 @@ export default class IndecisionApp extends Component {
           options={this.state.options}
           handleDeleteOptions={this.handleDeleteOptions}
         />
+        <AddOption handleAddOption={this.handleAddOption} />
       </div>
     );
   }
