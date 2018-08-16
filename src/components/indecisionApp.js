@@ -6,7 +6,7 @@ import AddOption from './AddOption';
 
 export default class IndecisionApp extends Component {
   state = {
-    options: ['Option 1', 'Option 2', 'Option 3'],
+    options: [],
     selectedOption: undefined
   };
 
@@ -36,6 +36,26 @@ export default class IndecisionApp extends Component {
 
     this.setState(prevState => ({ options: prevState.options.concat(option) }));
   };
+
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('options');
+      const options = JSON.parse(json);
+
+      if (options) {
+        this.setState(() => ({ options }));
+      }
+    } catch (e) {
+      // Do nothing at all
+    }
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+    }
+  }
 
   render() {
     const subtitle = 'Put your life in the hands of a computer';
