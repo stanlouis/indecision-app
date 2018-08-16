@@ -3,6 +3,7 @@ import Header from './Header';
 import Options from './Options';
 import Action from './Action';
 import AddOption from './AddOption';
+import OptionModal from './OptionModal';
 
 export default class IndecisionApp extends Component {
   state = {
@@ -23,7 +24,6 @@ export default class IndecisionApp extends Component {
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
-    alert(option);
     this.setState(() => ({ selectedOption: option }));
   };
 
@@ -35,6 +35,10 @@ export default class IndecisionApp extends Component {
     }
 
     this.setState(prevState => ({ options: prevState.options.concat(option) }));
+  };
+
+  handleCloseModal = () => {
+    this.setState(() => ({ selectedOption: undefined }));
   };
 
   componentDidMount() {
@@ -49,7 +53,7 @@ export default class IndecisionApp extends Component {
       // Do nothing at all
     }
   }
-  
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.options.length !== this.state.options.length) {
       const json = JSON.stringify(this.state.options);
@@ -72,6 +76,10 @@ export default class IndecisionApp extends Component {
           handleDeleteOption={this.handleDeleteOption}
         />
         <AddOption handleAddOption={this.handleAddOption} />
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          handleCloseModal={this.handleCloseModal}
+        />
       </div>
     );
   }
