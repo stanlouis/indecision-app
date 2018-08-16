@@ -9,9 +9,14 @@ export default class IndecisionApp extends Component {
     selectedOption: undefined
   };
 
+  handleDeleteOptions = () => {
+    this.setState(() => ({ options: [] }));
+  };
+
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
+    alert(option);
     this.setState(() => ({ selectedOption: option }));
   };
 
@@ -24,7 +29,10 @@ export default class IndecisionApp extends Component {
           hasOptions={this.state.options.length > 0}
           handlePick={this.handlePick}
         />
-        <Options options={this.state.options} />
+        <Options
+          options={this.state.options}
+          handleDeleteOptions={this.handleDeleteOptions}
+        />
       </div>
     );
   }
