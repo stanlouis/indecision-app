@@ -2,6 +2,7 @@
   "name": "indecision-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://stanlouis.github.io/indecision",
   "dependencies": {
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",
@@ -11,10 +12,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "sass:build": "sass — update src/styles/scss:src/styles/css",
-    "build": "yarn sass:build && react-scripts build",
+    "build": "react-scripts build",
     "sass": "sass --watch src/styles/scss:src/styles/css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
