@@ -2,7 +2,7 @@
   "name": "indecision-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stanlouis.github.io/indecision",
+  "homepage": "https://stanlouis.github.io/indecision-app",
   "dependencies": {
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",
