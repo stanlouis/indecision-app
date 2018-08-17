@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "normalize.css": "^8.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-modal": "^3.5.1",
@@ -12,7 +13,7 @@
     "start": "react-scripts start",
     "sass:build": "sass — update src/styles/scss:src/styles/css",
     "build": "yarn sass:build && react-scripts build",
-    "sass" : "sass --watch src/styles/scss:src/styles/css",
+    "sass": "sass --watch src/styles/scss:src/styles/css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
