@@ -82,4 +82,44 @@ button:disabled {
 .widget-header__title {
   margin: 0; }
 
+.option {
+  border-bottom: 1px solid #5c627b;
+  display: flex;
+  justify-content: space-between;
+  padding: 3.2rem 1.6rem; }
+
+.option__text {
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0;
+  word-break: break-all; }
+
+.add-option-error {
+  color: #a5afd7;
+  font-style: italic;
+  margin: 1.6rem 0 0 0;
+  padding: 0 1.6rem; }
+
+.add-option {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem; }
+
+.add-option__input {
+  background: #333745;
+  border: none;
+  color: #a5afd7;
+  border-bottom: 0.3rem solid #1d2028;
+  flex-grow: 1;
+  margin: 0 0 1.2rem 0;
+  padding: 1.2rem; }
+
+@media (min-width: 45rem) {
+  .add-option {
+    flex-direction: row; }
+
+  .add-option__input {
+    margin: 0 1.2rem 0 0; } }
+
 /*# sourceMappingURL=index.css.map */
